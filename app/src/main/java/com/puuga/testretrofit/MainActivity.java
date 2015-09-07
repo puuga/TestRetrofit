@@ -43,8 +43,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Response<Message[]> response) {
                 // Get result Repo from response.body()
+                Message[] messages = response.body();
                 Toast.makeText(getApplicationContext(),"response",Toast.LENGTH_SHORT).show();
-                Log.d("reponse", String.valueOf(response.body().length));
+                Log.d("reponse", "messages count:" + String.valueOf(messages.length));
+                for (Message message : messages) {
+                    Log.d("reponse", "messages :" + message.getMessage());
+                }
             }
 
             @Override
